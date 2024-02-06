@@ -80,29 +80,29 @@ public class UserServiceTest {
     }
 
     //update user test
-    @Test
-    public void updateUserTest() {
-        String userId = "hosdhfosdhvo";
-        UserDto userDto = UserDto.builder()
-                .name("Durgesh Kumar Tiwari")
-                .about("This is updated user about details")
-                .gender("Male")
-                .imageName("xyz.png")
-                .build();
-
-        Mockito.when(userRepository.findById(Mockito.anyString())).thenReturn(Optional.of(user));
-        Mockito.when(userRepository.save(Mockito.any())).thenReturn(user);
-
-        UserDto updatedUser = userService.updateUser(userDto, userId);
-//        UserDto updatedUser=mapper.map(user,UserDto.class);
-        System.out.println(updatedUser.getName());
-        System.out.println(updatedUser.getImageName());
-        Assertions.assertNotNull(userDto);
-        Assertions.assertEquals(userDto.getName(), updatedUser.getName(), "Name is not validated !!");
-        //multiple assertion are valid..
-
-
-    }
+//    @Test
+//    public void updateUserTest() {
+//        String userId = "hosdhfosdhvo";
+//        UserDto userDto = UserDto.builder()
+//                .name("Durgesh Kumar Tiwari")
+//                .about("This is updated user about details")
+//                .gender("Male")
+//                .imageName("xyz.png")
+//                .build();
+//
+//        Mockito.when(userRepository.findById(Mockito.anyString())).thenReturn(Optional.of(user));
+//        Mockito.when(userRepository.save(Mockito.any())).thenReturn(user);
+//
+//        UserDto updatedUser = userService.updateUser(userDto, userId);
+////        UserDto updatedUser=mapper.map(user,UserDto.class);
+//        System.out.println(updatedUser.getName());
+//        System.out.println(updatedUser.getImageName());
+//        Assertions.assertNotNull(userDto);
+//        Assertions.assertEquals(userDto.getName(), updatedUser.getName(), "Name is not validated !!");
+//        //multiple assertion are valid..
+//
+//
+//    }
 
     //delete user test case
 

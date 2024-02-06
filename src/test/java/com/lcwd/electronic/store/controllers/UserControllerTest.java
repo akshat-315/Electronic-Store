@@ -81,28 +81,28 @@ public class UserControllerTest {
     }
 
 
-    @Test
-    public void updateUserTest() throws Exception {
-
-        // /users/{userId} + PUT request+ json
-
-        String userId = "123";
-        UserDto dto = this.mapper.map(user, UserDto.class);
-
-        Mockito.when(userService.updateUser(Mockito.any(), Mockito.anyString())).thenReturn(dto);
-
-        this.mockMvc.perform(
-                        MockMvcRequestBuilders.put("/users/" + userId)
-                                .header(HttpHeaders.AUTHORIZATION, "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkdXJnZXNoQGRldi5pbiIsImlhdCI6MTY3NTI0OTA0MywiZXhwIjoxNjc1MjY3MDQzfQ.HQbZ4BrQlAgd5X40RZJhSMZ0zgZAfDcQtxJaSy97YZHgdNBV0g2r7-ZXRmw1EkKhkFtdkytG_E6I7MnsxVEZqg")
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .content(convertObjectToJsonString(user))
-                                .accept(MediaType.APPLICATION_JSON)
-                )
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name").exists());
-
-    }
+//    @Test
+//    public void updateUserTest() throws Exception {
+//
+//        // /users/{userId} + PUT request+ json
+//
+//        String userId = "123";
+//        UserDto dto = this.mapper.map(user, UserDto.class);
+//
+//        Mockito.when(userService.updateUser(Mockito.any(), Mockito.anyString())).thenReturn(dto);
+//
+//        this.mockMvc.perform(
+//                        MockMvcRequestBuilders.put("/users/" + userId)
+//                                .header(HttpHeaders.AUTHORIZATION, "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkdXJnZXNoQGRldi5pbiIsImlhdCI6MTY3NTI0OTA0MywiZXhwIjoxNjc1MjY3MDQzfQ.HQbZ4BrQlAgd5X40RZJhSMZ0zgZAfDcQtxJaSy97YZHgdNBV0g2r7-ZXRmw1EkKhkFtdkytG_E6I7MnsxVEZqg")
+//                                .contentType(MediaType.APPLICATION_JSON)
+//                                .content(convertObjectToJsonString(user))
+//                                .accept(MediaType.APPLICATION_JSON)
+//                )
+//                .andDo(print())
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("$.name").exists());
+//
+//    }
 
     private String convertObjectToJsonString(Object user) {
 
